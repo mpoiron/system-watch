@@ -12,7 +12,7 @@ module.exports = {
     debug: true,
 
     output: {
-        filename: './wwwroot/js/[name].bundle.js',
+        filename: './wwwroot/scripts/[name].bundle.js',
     },
 
     resolve: {
