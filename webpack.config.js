@@ -1,4 +1,5 @@
 var path = require('path')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     entry: {
@@ -16,7 +17,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['', '.js', '.ts']
+        extensions: ['', '.js', '.ts', '.html']
     },
 
     module: {
@@ -24,6 +25,12 @@ module.exports = {
             { test: /\.ts$/, exclude: /node_modules/, loader: 'ts' }
         ]
     },
+
+    plugins: [
+        new CopyWebpackPlugin([
+            { from: './app/**/*.html', to: './wwwroot/views/', flatten: true }
+        ])
+    ],
 
     devtool: 'source-map'
 }
