@@ -1,12 +1,10 @@
 var path = require('path')
-var CopyWebpackPlugin = require('copy-webpack-plugin')
+var webpack = require('webpack');
 
 module.exports = {
     entry: {
-        vendor: [
-            './node_modules/zone.js/dist/zone.js',
-            './app/vendor.ts',
-        ],
+        polyfills: './app/polyfills.ts',
+        vendor: './app/vendor.ts',
         app: './app/app.ts'
     },
 
@@ -22,14 +20,21 @@ module.exports = {
 
     module: {
         loaders: [
-            { test: /\.ts$/, exclude: /node_modules/, loader: 'ts' }
+            {
+                test: /\.ts$/,
+                loaders: ['awesome-typescript-loader', 'angular2-template-loader']
+            },
+            {
+                test: /\.html$/,
+                loader: 'html'
+            },
         ]
     },
 
     plugins: [
-        new CopyWebpackPlugin([
-            { from: './app/**/*.html', to: './wwwroot/views/', flatten: true }
-        ])
+        new webpack.optimize.CommonsChunkPlugin({
+            name: ['app', 'vendor', 'polyfills']
+        })
     ],
 
     devtool: 'source-map'
