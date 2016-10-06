@@ -22,12 +22,19 @@ module.exports = {
         loaders: [
             {
                 test: /\.ts$/,
+                exclude: /node_modules/,
                 loaders: ['awesome-typescript-loader', 'angular2-template-loader']
             },
             {
                 test: /\.html$/,
+                exclude: /node_modules/,
                 loader: 'html'
             },
+            {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                loaders: ['raw-loader', 'sass-loader']
+            }
         ]
     },
 

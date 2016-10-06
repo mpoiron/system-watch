@@ -1,0 +1,47 @@
+//  Import global variables and mixins
+@import '../app.style';
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: $menu-secondary-color;
+
+    li {
+        float: left;
+
+        &:hover {
+            background-color: $menu-primary-color;
+        }
+
+        a {
+            display: inline-block;
+            color: $menu-font-color;
+            text-decoration: none;
+            padding: 14px 16px;
+        }
+
+        .dropdown {
+            &:hover .dropdown-content {
+                display: block;
+            }
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: $menu-secondary-color;
+
+
+            a { 
+                display: block;
+                padding: 5px 16px;
+                
+                &:hover {
+                    background-color: $menu-primary-color;
+                }
+            }
+        }
+    }
+}
