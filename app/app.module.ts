@@ -7,7 +7,7 @@ import {TopNavComponent} from './topNav/topNav.component'
 @NgModule({
     imports: [BrowserModule],
     declarations: [AppComponent, HomeComponent, TopNavComponent],
-    bootstrap: [AppComponent],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 

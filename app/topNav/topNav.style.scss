@@ -1,45 +1,49 @@
 //  Import global variables and mixins
-@import '../app.style';
+@import '../app.common';
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+nav {
     background-color: $menu-secondary-color;
 
-    li {
-        float: left;
+    ul {
+        padding: 0;
+        margin: auto;
+        overflow: hidden;
+        list-style-type: none;
+        max-width: $content-max-width;
 
-        &:hover {
-            background-color: $menu-primary-color;
-        }
+        li {
+            float: left;
 
-        a {
-            display: inline-block;
-            color: $menu-font-color;
-            text-decoration: none;
-            padding: 14px 16px;
-        }
-
-        .dropdown {
-            &:hover .dropdown-content {
-                display: block;
+            &:hover {
+                background-color: $menu-primary-color;
             }
-        }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: $menu-secondary-color;
+            a {
+                display: inline-block;
+                color: $menu-font-color;
+                text-decoration: none;
+                padding: 14px 16px;
+            }
+
+            .dropdown {
+                &:hover .dropdown-content {
+                    display: block;
+                }
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: $menu-secondary-color;
 
 
-            a { 
-                display: block;
-                padding: 5px 16px;
-                
-                &:hover {
-                    background-color: $menu-primary-color;
+                a { 
+                    display: block;
+                    padding: 5px 16px;
+                    
+                    &:hover {
+                        background-color: $menu-primary-color;
+                    }
                 }
             }
         }

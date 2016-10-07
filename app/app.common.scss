@@ -1,0 +1,24 @@
+@charset 'utf-8';
+
+// Variables
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+$menu-primary-color: #4CAF50;
+$menu-secondary-color: #3F3F3F;
+$menu-font-color: #FFFFFF;
+
+$content-max-width: 1050px;
+
+// Mixins
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
