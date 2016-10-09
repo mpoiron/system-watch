@@ -13,6 +13,8 @@ nav {
 
         li {
             float: left;
+            min-width: 100px;
+            text-align: center;
 
             &:hover {
                 background-color: $menu-primary-color;
@@ -34,8 +36,8 @@ nav {
             .dropdown-content {
                 display: none;
                 position: absolute;
+                min-width: 100px;
                 background-color: $menu-secondary-color;
-
 
                 a { 
                     display: block;
