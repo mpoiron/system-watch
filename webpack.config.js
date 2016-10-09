@@ -1,6 +1,7 @@
 var path = require('path')
 var webpack = require('webpack');
 var LiveReloadPlugin = require('webpack-livereload-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -43,6 +44,11 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: ['app', 'vendor', 'polyfills']
         }),
+        new CopyWebpackPlugin([{
+            context: 'app/assets',
+            from: '**/*',
+            to: 'wwwroot/assets'
+        }]),
         new LiveReloadPlugin({
             port: 35729,
             hostname: 'localhost',
