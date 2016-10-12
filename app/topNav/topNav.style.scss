@@ -1,7 +1,23 @@
 //  Import global variables and mixins
 @import '../app.common';
 
+// Mixins
+@mixin dropdown-transition($visible, $opacity, $time, $delay) {
+    opacity: $opacity;
+    visibility: $visible;
+    @include transition(visibility 0s linear $delay, opacity $time ease-in);
+}
+
+* {
+    text-decoration: none;
+    color: $menu-font-color;
+}
+
 nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
     background-color: $menu-secondary-color;
 
     ul {
@@ -11,7 +27,7 @@ nav {
         list-style-type: none;
         max-width: $content-max-width;
 
-        li {
+        .menu-item {
             float: left;
             min-width: 100px;
             text-align: center;
@@ -20,26 +36,21 @@ nav {
                 background-color: $menu-primary-color;
             }
 
-            a {
+            .menu-link {
                 display: inline-block;
-                color: $menu-font-color;
-                text-decoration: none;
+                width: 100%;
                 padding: 14px 16px;
-            }
-
-            .dropdown {
-                &:hover .dropdown-content {
-                    display: block;
-                }
+                box-sizing: border-box;
             }
 
             .dropdown-content {
-                display: none;
+                @include dropdown-transition(hidden, 0, 0.1s, 0.5s);
                 position: absolute;
                 min-width: 100px;
+                text-align: left;
                 background-color: $menu-secondary-color;
 
-                a { 
+                a {
                     display: block;
                     padding: 5px 16px;
                     
@@ -48,6 +59,10 @@ nav {
                     }
                 }
             }
+        }
+
+        .dropdown-menu:hover .dropdown-content {
+            @include dropdown-transition(visible, 1, 0.1s, 0s);
         }
     }
 }
