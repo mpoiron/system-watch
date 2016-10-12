@@ -4,7 +4,9 @@
 $tablet-width: 768px;
 $desktop-width: 1024px;
 
-$menu-primary-color: #4CAF50;
+$main-font-family: Sans-Serif;
+
+$menu-primary-color: #487243;
 $menu-secondary-color: #3F3F3F;
 $menu-font-color: #FFFFFF;
 
@@ -21,4 +23,11 @@ $content-max-width: 1050px;
   @media (min-width: #{$desktop-width}) {
     @content;
   }
+}
+
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
 }
