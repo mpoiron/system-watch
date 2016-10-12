@@ -5,14 +5,15 @@ using Microsoft.AspNetCore.Mvc;
 namespace SystemWatch.Controllers
 {
     [Route("api/[controller]")]
-    public class ProcessesApi : Controller
+    public class Processes : Controller
     {
-        // GET api/values
+        // GET api/processes
         [HttpGet]
-        public IEnumerable<Process> Get()
+        public IEnumerable<Process> Index()
         {
             var processes = Process.GetProcesses();
             return processes;
         }
     }
 }
+
