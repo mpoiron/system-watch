@@ -1,0 +1,28 @@
+{
+    "version": "0.1.0",
+    "command": "cmd",
+    "isShellCommand": true,
+    "args": ["/C"],
+    "tasks": [
+        {
+            "taskName": "build",
+            "args": [ "dotnet build ${workspaceRoot}\\project.json" ],
+            "isBuildCommand": true,
+            "suppressTaskName": true,
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "taskName": "webpack",
+            "args": [ "npm run webpack" ],
+            "isBuildCommand": false,
+            "suppressTaskName": true
+        },
+        {
+            "taskName": "webpack-watch",
+            "args": [ "npm run webpack-watch" ],
+            "isWatching": true,
+            "isBuildCommand": false,
+            "suppressTaskName": true
+        }
+    ]
+}
