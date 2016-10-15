@@ -5,6 +5,12 @@
     "args": ["/C"],
     "tasks": [
         {
+            "taskName": "restore",
+            "args": [ "dotnet restore ${workspaceRoot}\\project.json" ],
+            "isBuildCommand": true,
+            "suppressTaskName": true
+        },
+        {
             "taskName": "build",
             "args": [ "dotnet build ${workspaceRoot}\\project.json" ],
             "isBuildCommand": true,
