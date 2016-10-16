@@ -1,4 +1,5 @@
 import {NgModule} from '@angular/core'
+import {HttpModule} from '@angular/http'
 import {BrowserModule} from '@angular/platform-browser'
 import {RouterModule} from '@angular/router'
 
@@ -13,6 +14,7 @@ import {TopNavComponent} from './top-nav/top-nav.component'
     declarations: [AppComponent, HomePageComponent, ProcessesPageComponent, TopNavComponent],
     imports: [
         BrowserModule,
+        HttpModule,
         RouterModule.forRoot([
             { path: 'system/processes', component: ProcessesPageComponent },
             { path: 'home', component: HomePageComponent },
