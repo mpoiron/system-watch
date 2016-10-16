@@ -2,9 +2,12 @@ import {Component, ViewEncapsulation} from '@angular/core'
 
 @Component({
     selector: 'system-watch',
-    template: '<home></home>',
+    template: `
+        <top-nav></top-nav>
+        <router-outlet></router-outlet>
+    `,
     styleUrls: ['./app.style.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
 
