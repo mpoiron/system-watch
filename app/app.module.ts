@@ -1,19 +1,21 @@
 import {NgModule} from '@angular/core'
 import {BrowserModule} from '@angular/platform-browser'
 import {RouterModule} from '@angular/router'
+
+// Components
 import {AppComponent} from './app.component'
-import {HomeComponent} from './home/home.component'
-import {ProcessesComponent} from './processes/processes.component'
-import {TopNavComponent} from './topNav/topNav.component'
+import {HomePageComponent} from './home/home-page.component'
+import {ProcessesPageComponent} from './processes/processes-page.component'
+import {TopNavComponent} from './top-nav/top-nav.component'
 
 @NgModule({
     bootstrap: [AppComponent],
-    declarations: [AppComponent, HomeComponent, ProcessesComponent, TopNavComponent],
+    declarations: [AppComponent, HomePageComponent, ProcessesPageComponent, TopNavComponent],
     imports: [
         BrowserModule,
         RouterModule.forRoot([
-            { path: 'system/processes', component: ProcessesComponent },
-            { path: 'home', component: HomeComponent },
+            { path: 'system/processes', component: ProcessesPageComponent },
+            { path: 'home', component: HomePageComponent },
         ]),
     ],
 })
