@@ -9,7 +9,6 @@ import {ProcessService} from '../shared/process.service'
     providers: [ProcessService],
 })
 export class ProcessesPageComponent implements OnInit {
-
     public processes: IProcess[]
 
     constructor(private processService: ProcessService) {}
