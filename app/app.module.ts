@@ -18,6 +18,7 @@ import {TopNavComponent} from './top-nav/top-nav.component'
         RouterModule.forRoot([
             { path: 'system/processes', component: ProcessesPageComponent },
             { path: 'home', component: HomePageComponent },
+            { path: '', redirectTo: 'home', pathMatch: 'full' },
         ]),
     ],
 })
