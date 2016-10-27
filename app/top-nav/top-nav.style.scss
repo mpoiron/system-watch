@@ -1,6 +1,10 @@
 //  Import global variables and mixins
 @import '../app.common';
 
+// Variables
+$top-item-width: 100px;
+$top-items-count: 2;
+
 // Mixins
 @mixin dropdown-transition($visible, $opacity, $time, $delay) {
     opacity: $opacity;
@@ -14,7 +18,7 @@
 }
 
 nav {
-    width: 100vw;
+    width: 100%;
     background-color: $menu-secondary-color;
     transition: width 0.5s ease-in-out;
 
@@ -22,7 +26,7 @@ nav {
         position: absolute;
         top: 0;
         left: 0;
-        width: 200px;
+        width: ($top-item-width * $top-items-count) + 1;
         z-index: 1;
     }
 
@@ -35,7 +39,7 @@ nav {
 
         .menu-item {
             float: left;
-            min-width: 100px;
+            min-width: $top-item-width;
             text-align: center;
 
             &:hover {
