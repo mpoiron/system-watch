@@ -1,3 +1,4 @@
+//  Import global variables and mixins
 @import './app.common';
 
 body {
@@ -8,6 +9,6 @@ body {
 }
 
 .page {
-    height: calc(100vh - 46px);
+    height: calc(100vh - #{$topnav-height});
     overflow-y: auto;
 }

@@ -1,0 +1,22 @@
+ul {
+    display: table; 
+    border-spacing: 5px;
+    list-style-type: none;
+
+    li {
+        display: table-row;
+
+        &:hover {
+            background-color: #3E3E3E;
+        }
+
+        span {
+            display: table-cell;
+        }
+
+        .id {
+            padding-right: 5px; 
+            font-size: 0.8em;
+        }
+    }
+}

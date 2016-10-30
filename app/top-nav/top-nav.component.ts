@@ -13,7 +13,8 @@ export class TopNavComponent {
         this.router
                 .events
                 .filter(event => event instanceof RoutesRecognized)
-                .subscribe((navigation: RoutesRecognized) =>
-                                this.isHome = navigation.urlAfterRedirects === '/home')
+                .subscribe((navigation: RoutesRecognized) => {
+                    this.isHome = navigation.urlAfterRedirects === '/home'
+                })
     }
 }
