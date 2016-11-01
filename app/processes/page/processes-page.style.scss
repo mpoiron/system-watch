@@ -1,7 +1,12 @@
 //  Import global variables and mixins
 @import '../../app.common';
 
-.container {
-    margin: auto;
-    max-width: $content-max-width;
+.page {
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        max-width: $content-max-width;
+    }
 }
