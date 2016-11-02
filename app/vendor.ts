@@ -8,3 +8,6 @@ import '@angular/router'
 
 // RxJS
 import 'rxjs'
+
+// CSS librairies
+import 'font-awesome/css/font-awesome.css'

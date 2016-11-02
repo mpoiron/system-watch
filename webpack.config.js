@@ -13,7 +13,8 @@ module.exports = {
     debug: true,
 
     output: {
-        filename: './wwwroot/scripts/[name].bundle.js',
+        path: path.resolve(__dirname, 'wwwroot'),
+        filename: 'scripts/[name].bundle.js',
     },
 
     resolve: {
@@ -36,6 +37,30 @@ module.exports = {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 loaders: ['raw-loader', 'sass-loader']
+            },
+            {
+                test: /\.css$/,
+                loader: 'style!css'
+            },
+            {
+                test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "file?limit=10000&name=assets/fonts/[name].[ext]"
+            }, 
+            {
+                test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "file?limit=10000&name=assets/fonts/[name].[ext]"
+            }, 
+            {
+                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "file?limit=10000&name=assets/fonts/[name].[ext]"
+            }, 
+            {
+                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "file?limit=10000&name=assets/fonts/[name].[ext]"
+            }, 
+            {
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                loader: "file?limit=10000&name=assets/fonts/[name].[ext]"
             }
         ]
     },
@@ -47,7 +72,7 @@ module.exports = {
         new CopyWebpackPlugin([{
             context: 'app/assets',
             from: '**/*',
-            to: 'wwwroot/assets'
+            to: 'assets'
         }]),
         new LiveReloadPlugin({
             port: 35729,
