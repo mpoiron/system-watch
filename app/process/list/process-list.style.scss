@@ -8,9 +8,12 @@
 }
 
 .header {
-    height: 100px;
+    display: flex;
+    flex: 1 0 auto;
     font-size: 1.1em;
+    margin-bottom: 10px;
     color: $component-title-color;
+    justify-content: space-between;
 }
 
 .processes {

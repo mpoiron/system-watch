@@ -4,36 +4,57 @@
 // Variables
 $block-margin: 5px;
 
+:host {
+    position: absolute;
+    top: $topnav-height;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 .container {
     height: 100%;
+    margin: auto;
     display: flex;
     flex-flow: column wrap;
-    justify-content: flex-start;
-    align-content: stretch;
-    align-items: stretch;
-    margin: 20px auto 0 auto;
     max-width: $content-max-width;
 
     .block {
         overflow: hidden;
         box-sizing: border-box;
-        border: 1px solid $component-title-color;
+        /*border: 1px solid $component-title-color;*/
     }
 
-    .list {
-        flex: 1 0 calc(50% - 5px);
+    .left {
+        width: 50%;
+        flex: 1 0 calc(50% - #{$block-margin});
         margin-right: $block-margin;
-        margin-bottom: $block-margin;
+
+        &:first-child {
+            margin-bottom: $block-margin;
+        }
+
+        &:last-child {
+            margin-top: $block-margin;
+        }
     }
 
-    .details {
-        flex: 1 0 calc(50% - 5px);
-        margin-top: $block-margin;
-        margin-right: $block-margin;
-    }
-
-    .graph {
+    .right {
         flex: 0 1 100%;
         margin-left: $block-margin;
+    }
+}
+
+@include mobile {
+    :host {
+        overflow-y: auto; 
+    }
+
+    .container .block {
+        flex: 1;
+        margin: $block-margin 0 $block-margin 0;
     }
 }
