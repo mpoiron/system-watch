@@ -37,6 +37,22 @@ export class ProcessListComponent implements OnInit {
                     () => this.sortProcess('name'))
     }
 
+    public getDisplayProperty(process: IProcess) {
+        switch (this.sortProperty) {
+            case 'name':
+                return ''
+
+            case 'id':
+                return `#${process.id}`
+
+            case 'pagedMemorySize64':
+                return `${process.pagedMemorySize64 / 1024} Ko`
+
+            default:
+                return process[this.sortProperty]
+        }
+    }
+
     public sortProcess(property, ascending = true) {
         this.sortProperty = property
         this.sortAscending = ascending

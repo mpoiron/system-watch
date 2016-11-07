@@ -13,7 +13,7 @@
     <ul>
         <li *ngFor="let process of sortedProcesses">
             <div class="name">{{process.name}}</div>
-            <div>{{process[sortProperty]}}</div>
+            <div>{{getDisplayProperty(process)}}</div>
         </li>
     </ul>
 </div>
