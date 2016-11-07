@@ -1,6 +1,9 @@
-import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core'
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angular/core'
 
 @Component({
+    host: {
+        '(document:click)': 'onExternalClick($event)',
+    },
     selector: 'dropdown',
     template: `
     <span class="container" (click)="isVisible = !isVisible">
@@ -47,6 +50,8 @@ export class DropdownComponent implements OnInit {
     public isVisible: boolean = false
     public selectedOption: IOption
 
+    constructor(private _elementRef: ElementRef) { }
+
     public ngOnInit() {
         this.selectOption(this.options.find(o => o.default = true))
     }
@@ -54,6 +59,12 @@ export class DropdownComponent implements OnInit {
     public selectOption(option: IOption) {
         this.selectedOption = option
         this.onchange.emit(this.selectedOption)
+    }
+
+    public onExternalClick(event) {
+        if (this.isVisible && !this._elementRef.nativeElement.contains(event.target)) {
+            this.isVisible = false
+        }
     }
 }
 
