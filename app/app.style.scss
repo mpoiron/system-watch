@@ -9,6 +9,13 @@ body {
 }
 
 .page {
+    overflow: hidden;
     height: calc(100vh - #{$topnav-height});
-    overflow-y: auto;
+    background-color: whitesmoke;
+}
+
+@include mobile {
+    .page {
+        overflow-y: auto;
+    }
 }

@@ -1,0 +1,64 @@
+import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core'
+
+@Component({
+    selector: 'dropdown',
+    template: `
+    <span class="container" (click)="isVisible = !isVisible">
+        <span>{{selectedOption.label}}</span>
+        <ul class="dropdown" [ngClass]="{'visible': isVisible}">
+            <li *ngFor="let option of options" (click)="selectOption(option)">{{option.label}}</li>
+        </ul>        
+    </span>
+    `,
+    styles: [`
+        .container {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid black;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dropdown li {
+            padding: 0 10px;
+        }
+
+        .dropdown li:hover {
+            color: white;
+            background-color: #3297FD;
+        }
+
+        .visible {
+            display: block;
+        }
+    `],
+})
+export class DropdownComponent implements OnInit {
+    @Input() public options: IOption[]
+    @Output() public onchange = new EventEmitter<IOption>()
+
+    public isVisible: boolean = false
+    public selectedOption: IOption
+
+    public ngOnInit() {
+        this.selectOption(this.options.find(o => o.default = true))
+    }
+
+    public selectOption(option: IOption) {
+        this.selectedOption = option
+        this.onchange.emit(this.selectedOption)
+    }
+}
+
+export interface IOption {
+    label: string
+    value: string
+    default?: boolean
+}

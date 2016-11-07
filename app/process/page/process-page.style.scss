@@ -1,0 +1,35 @@
+//  Import global variables and mixins
+@import '../../app.common';
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+    margin: 20px auto 0 auto;
+    max-width: $content-max-width;
+
+    .block {
+        overflow: hidden;
+        box-sizing: border-box;
+        border: 1px solid $component-title-color;
+    }
+
+    .list {
+        flex: 1 0 calc(50% - 5px);
+        margin: 0 5px 5px 0;
+        overflow-y: auto;
+    }
+
+    .details {
+        flex: 1 0 calc(50% - 5px);
+        margin: 5px 5px 0 0;
+    }
+
+    .graph {
+        flex: 0 1 100%;
+        margin-left: 5px;  
+    }
+}

@@ -1,0 +1,16 @@
+<div class="header">
+    <div class="sort">
+        <dropdown [options]="sortOptions" (onchange)="sortProcess($event.value, sortAscending)"></dropdown>
+        <span class="sort-order fa" [ngClass]="{'fa-caret-up': sortAscending, 'fa-caret-down': !sortAscending}" (click)="sortProcess(sortProperty, !sortAscending)">
+            </span>
+    </div>
+
+    <div class="title">All processes</div>
+</div>
+
+<ul class="processes">
+    <li class="processes__element" *ngFor="let process of sortedProcesses">
+        <div class="">{{process[sortProperty]}}</div>
+        <div class="processes__element__name">{{process.name}}</div>
+    </li>
+</ul>

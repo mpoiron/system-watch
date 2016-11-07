@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core'
-import {IProcess} from '../../shared/process'
-import {ProcessService} from '../../shared/process.service'
+import {IProcess, ProcessService} from '../process.module'
 
 @Component({
-    selector: 'processes-list',
-    templateUrl: './processes-list.template.html',
-    styleUrls: ['./processes-list.style.scss'],
+    selector: 'process-list',
+    templateUrl: './process-list.template.html',
+    styleUrls: ['./process-list.style.scss'],
+    providers: [ProcessService],
 })
-export class ProcessesListComponent implements OnInit {
+export class ProcessListComponent implements OnInit {
 
     // Sorting options
     public sortProperty = 'name'
@@ -15,7 +15,9 @@ export class ProcessesListComponent implements OnInit {
 
     // Available sorting properties options
     public sortOptions = [
-        { label: 'Name', value: 'name' },
+        { label: 'name', value: 'name', default: true },
+        { label: 'id', value: 'id' },
+        { label: 'paged memory', value: 'pagedMemorySize64' },
     ]
 
     // Sorted processes list
@@ -31,18 +33,22 @@ export class ProcessesListComponent implements OnInit {
                 .getProcesses()
                 .subscribe(
                     processes => this.processes = processes,
-                    (error) => console.debug('Failed to retrieve processes. Error : ' + error),
-                    () => this.sortedProcesses = this.sortProcessByProperty('name'))
+                    (error) => this.processes = [],
+                    () => this.sortProcess('name'))
     }
 
-    public sortProcess(property, ascending) {
+    public sortProcess(property, ascending = true) {
         this.sortProperty = property
         this.sortAscending = ascending
 
         this.sortedProcesses = this.sortProcessByProperty(property, this.sortAscending)
     }
 
-    private sortProcessByProperty(property, ascending = true) {
+    private sortProcessByProperty(property, ascending) {
+        if (this.processes == null || this.processes.length < 1) {
+            return
+        }
+
         return this.processes.sort((a, b) => {
                                 let first = a[property]
                                 let second = b[property]

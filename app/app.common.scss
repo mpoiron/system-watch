@@ -17,14 +17,21 @@ $content-max-width: 1050px;
 $component-title-color: #3E3E3E;
 
 // Mixins
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
 @mixin tablet {
   @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
     @content;
   }
 }
 
-@mixin desktop {
-  @media (min-width: #{$desktop-width}) {
+@mixin mobile {
+  @media (max-width: #{$tablet-width  - 1px}) {
     @content;
   }
 }
