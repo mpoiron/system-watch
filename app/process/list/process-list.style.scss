@@ -1,75 +1,42 @@
 //  Import global variables and mixins
 @import '../../app.common';
 
-///
-/// USE A MIXIN FOR RIGHT COLUMN
-///
+:host {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
 
 .header {
-    clear: both;
+    height: 100px;
     font-size: 1.1em;
-    margin-bottom: 5px;
     color: $component-title-color;
-
-    .title {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        text-transform: uppercase;
-    }
-
-    .sort {
-        float: right;
-        text-align: right;
-
-        &-property {
-            display: inline-block;
-        }
-
-        .dropdown {
-            margin: 0;
-            padding: 0;
-            display: none;
-            list-style-type: none;
-        }
-
-        &-order {
-            display: inline-block;
-            margin: 0 2px;
-        }
-    }
 }
 
 .processes {
-    border-spacing: 5px;
-    list-style-type: none;
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
+    flex: 0 1 auto;
+    overflow-y: auto;
 
-    &__element {
-        clear: both;
-        margin-bottom: 5px;
+    ul {
+        margin: 0;
+        padding: 0;
 
-        div {
-            padding-right: 5px;
-        }
+        & > li {
+            display: flex;
+            flex-wrap: row;
+            margin-bottom: 5px;
+            justify-content: space-between;
 
-        &__name {
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-            font-weight: 600;
-        }
+            div {
+                padding-right: 5px;
+            }
 
-        &__id {
-            color: #292929;
-            font-size: 0.8em;
-        }
-
-        div:first-child {
-            float: right;
-            text-align: right;
+            .name {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                font-weight: 600;
+            }
         }
     }
 }
