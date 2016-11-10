@@ -27,6 +27,7 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angul
             list-style-type: none;
             margin: 0;
             padding: 0;
+            z-index: 10;
         }
 
         .dropdown li {

@@ -14,14 +14,21 @@
     margin-bottom: 10px;
     color: $component-title-color;
     justify-content: space-between;
+
+    .sort-order {
+        width: 15px;
+        text-align: center;
+        display: inline-block;
+    }
 }
 
 .processes {
     flex: 0 1 auto;
-    overflow-y: auto;
+    position: relative;
+    overflow-y: hidden;
 
     ul {
-        margin: 0;
+        margin: 0 15px 0 0;
         padding: 0;
 
         & > li {

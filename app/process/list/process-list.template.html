@@ -9,11 +9,11 @@
     </span>
 </div>
 
-<div class="processes">
+<perfect-scrollbar class="processes">
     <ul>
         <li *ngFor="let process of sortedProcesses">
             <div class="name">{{process.name}}</div>
             <div>{{getDisplayProperty(process)}}</div>
         </li>
     </ul>
-</div>
+</perfect-scrollbar>
