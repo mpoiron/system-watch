@@ -3,15 +3,17 @@
     <span class="sort">
         <dropdown [options]="sortOptions" (onchange)="sortProcess($event.value, sortAscending)"></dropdown>
         <span class="sort-order fa" 
-                [ngClass]="{'fa-caret-up': sortAscending, 'fa-caret-down': !sortAscending}" 
-                (click)="sortProcess(sortProperty, !sortAscending)">
+              [ngClass]="{'fa-caret-up': sortAscending, 'fa-caret-down': !sortAscending}" 
+              (click)="sortProcess(sortProperty, !sortAscending)">
         </span>
     </span>
 </div>
 
 <perfect-scrollbar class="processes">
     <ul>
-        <li *ngFor="let process of sortedProcesses">
+        <li *ngFor="let process of sortedProcesses" 
+            [ngClass]="{'selected': process.id === selectedProcess?.id}"
+            (click)="selectedProcess = process">
             <div class="name">{{process.name}}</div>
             <div>{{getDisplayProperty(process)}}</div>
         </li>

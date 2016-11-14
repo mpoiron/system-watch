@@ -8,12 +8,9 @@
 }
 
 .header {
-    display: flex;
-    flex: 1 0 auto;
     font-size: 1.1em;
     margin-bottom: 10px;
     color: $component-title-color;
-    justify-content: space-between;
 
     .sort-order {
         width: 15px;
@@ -28,24 +25,37 @@
     overflow-y: hidden;
 
     ul {
-        margin: 0 15px 0 0;
         padding: 0;
+        margin: 0;
+        user-select: none;
 
         & > li {
+            height: 25px;
+            line-height: 25px;
+            cursor: pointer;
             display: flex;
-            flex-wrap: row;
-            margin-bottom: 5px;
+            flex-direction: row;
             justify-content: space-between;
 
-            div {
-                padding-right: 5px;
+            &:hover {
+                background-color: #B9BDBF;
+            }
+
+            &.selected {
+                color: white;
+                background-color: #7C7E7F;
             }
 
             .name {
+                margin-left: 2px;
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 overflow: hidden;
                 font-weight: 600;
+            }
+
+            div:last-child {
+                margin-right: 15px;
             }
         }
     }

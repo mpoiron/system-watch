@@ -9,7 +9,9 @@ import {IProcess, ProcessService} from '../process.module'
 })
 export class ProcessListComponent implements OnInit {
 
-    // Sorting options
+    public selectedProcess: IProcess
+
+    // Selected sorting option
     public sortProperty = 'name'
     public sortAscending = true
 
@@ -20,10 +22,7 @@ export class ProcessListComponent implements OnInit {
         { label: 'paged memory', value: 'pagedMemorySize64' },
     ]
 
-    // Sorted processes list
     public sortedProcesses: IProcess[]
-
-    // Processes list
     private processes: IProcess[]
 
     constructor(private processService: ProcessService) {}
@@ -58,6 +57,15 @@ export class ProcessListComponent implements OnInit {
         this.sortAscending = ascending
 
         this.sortedProcesses = this.sortProcessByProperty(property, this.sortAscending)
+    }
+
+    public selectProcess(id) {
+        if (this.selectedProcess.id === id) {
+            this.selectProcess = null
+            return;
+        }
+
+        this.selectedProcess = this.processes.find(proc => proc.id === id)
     }
 
     private sortProcessByProperty(property, ascending) {

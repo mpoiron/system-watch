@@ -60,6 +60,7 @@ nav {
                 min-width: 100px;
                 text-align: left;
                 background-color: $menu-secondary-color;
+                z-index: 1000;
 
                 a {
                     display: block;
