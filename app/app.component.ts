@@ -3,8 +3,12 @@ import {Component, ViewEncapsulation} from '@angular/core'
 @Component({
     selector: 'system-watch',
     template: `
-        <top-nav></top-nav>
-        <router-outlet></router-outlet>
+        <div class="layer">
+            <top-nav></top-nav>
+            <main>
+                <router-outlet></router-outlet>
+            </main>
+        </div>
     `,
     styleUrls: ['./app.style.scss'],
     encapsulation: ViewEncapsulation.None,

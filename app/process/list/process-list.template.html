@@ -1,8 +1,8 @@
 <div class="header">
-    <span class="title">All processes</span>
+    <h2>Processes</h2>
     <span class="sort">
         <dropdown [options]="sortOptions" (onchange)="sortProcess($event.value, sortAscending)"></dropdown>
-        <span class="sort-order fa" 
+        <span class="order fa" 
               [ngClass]="{'fa-caret-up': sortAscending, 'fa-caret-down': !sortAscending}" 
               (click)="sortProcess(sortProperty, !sortAscending)">
         </span>

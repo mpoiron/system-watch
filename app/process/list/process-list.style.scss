@@ -5,28 +5,38 @@
     height: 100%;
     display: flex;
     flex-flow: column;
+    position: relative;
 }
 
 .header {
-    font-size: 1.1em;
+    height: $component-title-height;
     margin-bottom: 10px;
+    font-size: 1.1em;
     color: $component-title-color;
 
-    .sort-order {
-        width: 15px;
-        text-align: center;
+    h2 {
+        margin: 0;
         display: inline-block;
+        line-height: $component-title-height;
+    }
+
+    .sort {
+        float: right;
+        line-height: $component-title-height;
+
+        .order {
+            width: 17px;
+            text-align: center;
+            display: inline-block;
+        }
     }
 }
 
 .processes {
-    flex: 0 1 auto;
     position: relative;
     overflow-y: hidden;
 
     ul {
-        padding: 0;
-        margin: 0;
         user-select: none;
 
         & > li {

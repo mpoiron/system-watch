@@ -1,32 +1,18 @@
 @import '../app.common';
 
-.hero {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background: url('./assets/images/hero.jpg') no-repeat center fixed;
-    background-size: cover;
-}
-
-.layer {
-    height: 100%;
-    width: 100%;
-    background-color: transparentize(#030301, 0.5);
-}
-
-.main-content {
+:host {
     overflow: auto;
+    margin: 0 5px;
+    padding-top: 20vh;
     color: white;
     text-align: center;
-    margin: 0  5px;
-    padding-top: 20vh;
+}
 
-    h1 {
-        font-size: 50px;
-        margin-bottom: 0;
-    }
+h1 {
+    font-size: 50px;
+    margin-bottom: 0;
+}
 
-    p {
-        font-size: 20px;
-    }
+p {
+    font-size: 20px;
 }
