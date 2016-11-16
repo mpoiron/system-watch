@@ -6,13 +6,13 @@
     "tasks": [
         {
             "taskName": "restore",
-            "args": [ "dotnet restore ${workspaceRoot}\\project.json" ],
+            "args": [ "dotnet restore ${workspaceRoot}\\SystemWatch.csproj" ],
             "isBuildCommand": true,
             "suppressTaskName": true
         },
         {
             "taskName": "build",
-            "args": [ "dotnet build ${workspaceRoot}\\project.json" ],
+            "args": [ "dotnet build ${workspaceRoot}\\SystemWatch.csproj" ],
             "isBuildCommand": true,
             "suppressTaskName": true,
             "problemMatcher": "$msCompile"
