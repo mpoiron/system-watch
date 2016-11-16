@@ -1,10 +1,11 @@
-<h2 class="header title">Processes</h2>
-
-<div class="header sort">
-    <dropdown [options]="sortOptions" (onchange)="sortProcess($event.value, sortAscending)"></dropdown>
-    <span class="order fa" 
-            [ngClass]="{'fa-caret-up': sortAscending, 'fa-caret-down': !sortAscending}" 
-            (click)="sortProcess(sortProperty, !sortAscending)">
+<div class="header">
+    <h2>Processes</h2>
+    <span class="sort">
+        <dropdown [options]="sortOptions" (onchange)="sortProcess($event.value, sortAscending)"></dropdown>
+        <span class="order fa" 
+              [ngClass]="{'fa-caret-up': sortAscending, 'fa-caret-down': !sortAscending}" 
+              (click)="sortProcess(sortProperty, !sortAscending)">
+        </span>
     </span>
 </div>
 

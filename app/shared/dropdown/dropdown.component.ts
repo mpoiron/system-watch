@@ -1,7 +1,5 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angular/core'
 
-/** TODO: Separate files */
-
 @Component({
     host: {
         '(document:click)': 'onExternalClick($event)',
@@ -27,7 +25,6 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angul
             background-color: white;
             border: 1px solid black;
             list-style-type: none;
-            right: 0;
             margin: 0;
             padding: 0;
             z-index: 10;
@@ -35,8 +32,6 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angul
 
         .dropdown li {
             padding: 0 10px;
-            white-space: nowrap;
-            text-overflow: ellipsis;
         }
 
         .dropdown li:hover {

@@ -4,26 +4,35 @@
 :host {
     height: 100%;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    flex-flow: column;
+    position: relative;
 }
 
 .header {
-    margin: 0;
-    position: relative;
-    margin-bottom: 10px;
-    display: inline-block;
     height: $component-title-height;
-    line-height: $component-title-height;
-}
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: $component-title-color;
 
-.order {
-    width: 17px;
-    text-align: center;
+    h2 {
+        margin: 0;
+        display: inline-block;
+        line-height: $component-title-height;
+    }
+
+    .sort {
+        float: right;
+        line-height: $component-title-height;
+
+        .order {
+            width: 17px;
+            text-align: center;
+            display: inline-block;
+        }
+    }
 }
 
 .processes {
-    width: 100%;
     position: relative;
     overflow-y: hidden;
 
