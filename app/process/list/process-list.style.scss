@@ -70,3 +70,18 @@
         }
     }
 }
+
+@include mobile {
+    .header {
+        height: auto;
+        margin-bottom: 0;
+
+        h2 {
+            display: block;
+        }
+
+        .sort {
+            float: none;
+        }
+    }
+}
