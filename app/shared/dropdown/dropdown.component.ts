@@ -21,7 +21,7 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angul
 
         .dropdown {
             display: none;
-            position: absolute;
+            position: fixed;
             background-color: white;
             border: 1px solid black;
             list-style-type: none;
