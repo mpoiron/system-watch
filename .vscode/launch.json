@@ -6,7 +6,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/bin/Debug/net46/win7-x64/SystemWatch.exe",
+            "program": "${workspaceRoot}/bin/Debug/netcoreapp1.0/SystemWatch.dll",
             "args": [],
             "cwd": "${workspaceRoot}",
             "stopAtEntry": false,
