@@ -2,7 +2,7 @@
 @import '../../app.common';
 
 // Variables
-$block-margin: 5px;
+$block-margin: 10px;
 
 :host {
     height: 100%;
@@ -11,7 +11,6 @@ $block-margin: 5px;
     flex-flow: column wrap;
     justify-content: space-between;
     max-width: $content-max-width;
-    background-color: white;
     box-sizing: border-box;
     padding: 16px;
 }
@@ -20,17 +19,17 @@ $block-margin: 5px;
     width: 50%;
     overflow: hidden;
     box-sizing: border-box;
+    background-color: white;
 }
 
 .left {
     flex: 1 0 100%;
     margin-right: $block-margin;
-    padding-right: $block-margin;
-    border-right: 1px solid $component-title-color;
+    padding: 5px 0px 0px 10px;
 }
 
 .right {
-    flex: 0 0 calc(50% - #{$block-margin});
+    flex: 0 0 calc(50% - #{$block-margin / 2});
 }
 
 @include mobile {
